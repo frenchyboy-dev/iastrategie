@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IA Stratégie aide les petites entreprises de services à automatiser leurs tâches répétitives, mieux suivre leurs clients et gagner du temps avec des solutions IA simples et concrètes." />
+  <title>IA Stratégie | Automatisation et IA pratique pour PME</title>
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --paper: #ffffff;
+      --ink: #151515;
+      --muted: #5b6472;
+      --line: #191919;
+      --soft: #f5f1ea;
+      --accent: #ff5b4f;
+      --accent-dark: #d94137;
+      --blue: #dcecff;
+      --green: #e2f5df;
+      --yellow: #fff0c2;
+      --pink: #ffe2df;
+      --purple: #eee3ff;
+      --shadow: 6px 6px 0 rgba(20,20,20,.10);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(20,20,20,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,20,20,.035) 1px, transparent 1px),
+        var(--bg);
+      background-size: 28px 28px;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251,250,247,.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(20,20,20,.10);
+    }
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; font-weight: 900; letter-spacing: -.02em; }
+    .brand img { height: 42px; width: auto; display: block; }
+    .brand span { font-size: 1.2rem; }
+    .navlinks { display: flex; align-items: center; gap: 18px; font-size: .95rem; font-weight: 700; }
+    .navlinks a { text-decoration: none; color: #262626; }
+    .navlinks a:hover { color: var(--accent-dark); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 18px;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 4px 4px 0 rgba(0,0,0,.18);
+      transition: transform .15s ease, box-shadow .15s ease;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 rgba(0,0,0,.18); }
+    .btn.secondary { background: white; color: var(--ink); }
+
+    .hero { padding: 76px 0 52px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 42px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--yellow);
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 900;
+      box-shadow: 3px 3px 0 rgba(0,0,0,.13);
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(2.35rem, 6vw, 5.35rem);
+      line-height: .94;
+      letter-spacing: -.065em;
+    }
+    .lead {
+      margin: 24px 0 0;
+      max-width: 680px;
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      color: var(--muted);
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+
+    .sketch-card {
+      position: relative;
+      background: var(--paper);
+      border: 2.5px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card { padding: 26px; transform: rotate(1deg); }
+    .hero-card:before {
+      content: "";
+      position: absolute;
+      inset: 16px -10px -12px 14px;
+      border: 2px dashed rgba(255,91,79,.45);
+      border-radius: var(--radius);
+      z-index: -1;
+    }
+    .hero-card h2 { margin: 0 0 14px; font-size: 1.25rem; }
+    .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; }
+    .tick {
+      flex: 0 0 auto;
+      width: 24px; height: 24px;
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-grid; place-items: center;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .mini-note { margin-top: 18px; padding: 14px; background: var(--blue); border: 2px solid var(--line); border-radius: 16px; font-weight: 800; }
+
+    section { padding: 54px 0; }
+    .section-title { display: grid; gap: 8px; margin-bottom: 24px; }
+    .section-title h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1; letter-spacing: -.045em; }
+    .section-title p { margin: 0; color: var(--muted); font-size: 1.08rem; max-width: 760px; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { padding: 24px; min-height: 220px; }
+    .card h3 { margin: 0 0 10px; font-size: 1.35rem; letter-spacing: -.02em; }
+    .card p { margin: 0; color: var(--muted); }
+    .icon {
+      width: 54px; height: 54px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      display: grid; place-items: center;
+      margin-bottom: 16px;
+      background: var(--yellow);
+      font-size: 1.55rem;
+      box-shadow: 3px 3px 0 rgba(0,0,0,.12);
+    }
+    .card:nth-child(2) .icon { background: var(--blue); }
+    .card:nth-child(3) .icon { background: var(--purple); }
+
+    .steps { display: grid; gap: 14px; }
+    .step {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+    }
+    .num {
+      height: 60px;
+      border: 2px solid var(--line);
+      border-radius: 18px;
+      display: grid; place-items: center;
+      background: var(--accent);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 900;
+      box-shadow: 3px 3px 0 rgba(0,0,0,.18);
+    }
+    .step h3 { margin: 0 0 6px; font-size: 1.25rem; }
+    .step p { margin: 0; color: var(--muted); }
+
+    .offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .offer { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+    .offer.featured { background: #fff8e5; transform: translateY(-8px); }
+    .price { font-size: 2.15rem; line-height: 1; font-weight: 900; letter-spacing: -.05em; }
+    .price small { font-size: .9rem; color: var(--muted); letter-spacing: 0; }
+    .offer ul { padding-left: 20px; margin: 0; color: var(--muted); }
+
+    details {
+      background: var(--paper);
+      border: 2px solid var(--line);
+      border-radius: 18px;
+      padding: 0;
+      box-shadow: 4px 4px 0 rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+    details + details { margin-top: 12px; }
+    summary { padding: 18px 20px; cursor: pointer; font-weight: 900; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    .details-content { padding: 0 20px 20px; color: var(--muted); }
+
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: start; }
+    .contact-info { padding: 24px; background: var(--yellow); }
+    .contact-info p { margin: 8px 0; }
+    form { padding: 24px; background: white; }
+    label { display: block; font-weight: 900; margin: 0 0 7px; }
+    input, textarea, select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      font: inherit;
+      outline: none;
+    }
+    textarea { min-height: 132px; resize: vertical; }
+    .field { margin-bottom: 16px; }
+    .fineprint { color: var(--muted); font-size: .9rem; margin: 12px 0 0; }
+
+    footer { padding: 34px 0; border-top: 2px solid rgba(20,20,20,.10); color: var(--muted); }
+    .footer-grid { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-grid a { color: var(--muted); text-decoration: none; margin-left: 14px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .contact-grid { grid-template-columns: 1fr; }
+      .grid-3, .offers { grid-template-columns: 1fr; }
+      .navlinks { display: none; }
+      .hero { padding-top: 48px; }
+      .hero-card { transform: none; }
+      .offer.featured { transform: none; }
+    }
+    @media (max-width: 560px) {
+      .brand img { height: 34px; }
+      .brand span { font-size: 1rem; }
+      .step { grid-template-columns: 1fr; }
+      .num { width: 70px; }
+      header, section { padding-left: 0; padding-right: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <nav class="wrap nav" aria-label="Navigation principale">
+      <a href="#accueil" class="brand" aria-label="IA Stratégie accueil">
+        <img src="assets/logo.png" alt="Logo IA Stratégie" />
+      </a>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#methode">Méthode</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn" href="#contact">Discuter du projet</a>
+      </div>
+    </nav>
+  </div>
+
+  <header id="accueil" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">⚡ IA + automatisation pour PME locales</div>
+        <h1>Moins de tâches répétitives. Plus de suivis qui se font.</h1>
+        <p class="lead">IA Stratégie aide les petites entreprises de services à simplifier leurs processus, automatiser les suivis et connecter leurs outils sans projet TI lourd.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact">Demander un appel gratuit</a>
+          <a class="btn secondary" href="#methode">Voir la méthode</a>
+        </div>
+      </div>
+
+      <aside class="sketch-card hero-card" aria-label="Résumé des bénéfices">
+        <h2>Ce qu’on vise concrètement</h2>
+        <ul class="checklist">
+          <li><span class="tick">✓</span><span>réduire les doubles saisies et les copier-coller inutiles;</span></li>
+          <li><span class="tick">✓</span><span>éviter les oublis de relance, de suivi et de rendez-vous;</span></li>
+          <li><span class="tick">✓</span><span>automatiser les étapes simples entre vos outils existants;</span></li>
+          <li><span class="tick">✓</span><span>mettre en place des usages IA réalistes, encadrés et utiles.</span></li>
+        </ul>
+        <div class="mini-note">Pas de promesse magique. On part de vos vrais irritants.</div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="services">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Des interventions courtes, ciblées et utiles pour améliorer vos opérations sans transformer votre entreprise en laboratoire informatique.</p>
+        </div>
+        <div class="grid-3">
+          <article class="sketch-card card">
+            <div class="icon">↻</div>
+            <h3>Automatisation des processus</h3>
+            <p>Relances, notifications, transferts d’information, tâches répétitives et petits flux de travail qui prennent trop de temps.</p>
+          </article>
+          <article class="sketch-card card">
+            <div class="icon">⇄</div>
+            <h3>Intégration d’outils</h3>
+            <p>Connexion entre formulaires, courriels, CRM, facturation, feuilles de calcul, outils de gestion et applications cloud.</p>
+          </article>
+          <article class="sketch-card card">
+            <div class="icon">✦</div>
+            <h3>IA pratique</h3>
+            <p>Assistants simples, aide à la rédaction, classement d’information, synthèses et règles d’usage pour garder le contrôle humain.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="methode">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Comment ça marche</h2>
+          <p>Un processus simple : comprendre, prioriser, implanter, mesurer.</p>
+        </div>
+        <div class="steps">
+          <article class="sketch-card step">
+            <div class="num">1</div>
+            <div>
+              <h3>Appel découverte gratuit</h3>
+              <p>On valide vos irritants, votre contexte, vos outils et si le mandat vaut la peine d’être poursuivi.</p>
+            </div>
+          </article>
+          <article class="sketch-card step">
+            <div class="num">2</div>
+            <div>
+              <h3>Analyse ciblée</h3>
+              <p>On cartographie 1 à 2 processus, on identifie les pertes de temps et on priorise les améliorations les plus rentables.</p>
+            </div>
+          </article>
+          <article class="sketch-card step">
+            <div class="num">3</div>
+            <div>
+              <h3>Implantation</h3>
+              <p>On configure, teste et documente une solution simple : automatisation, intégration ou usage IA encadré.</p>
+            </div>
+          </article>
+          <article class="sketch-card step">
+            <div class="num">4</div>
+            <div>
+              <h3>Suivi et optimisation</h3>
+              <p>Après la livraison, on ajuste, stabilise et améliore progressivement selon la valeur obtenue.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tarifs">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Tarifs de départ</h2>
+          <p>Des forfaits clairs pour éviter les mandats flous et garder le contrôle sur la portée.</p>
+        </div>
+        <div class="offers">
+          <article class="sketch-card offer">
+            <h3>Repérage</h3>
+            <div class="price">0 $</div>
+            <ul>
+              <li>appel découverte 20 à 45 minutes;</li>
+              <li>validation du contexte;</li>
+              <li>orientation sur la suite.</li>
+            </ul>
+          </article>
+          <article class="sketch-card offer featured">
+            <h3>Analyse ciblée</h3>
+            <div class="price">750 $</div>
+            <ul>
+              <li>1 à 2 processus analysés;</li>
+              <li>irritants et priorités;</li>
+              <li>plan d’action clair.</li>
+            </ul>
+          </article>
+          <article class="sketch-card offer">
+            <h3>Implantation</h3>
+            <div class="price">950 $ <small>et +</small></div>
+            <ul>
+              <li>portée définie par devis;</li>
+              <li>configuration et tests;</li>
+              <li>transfert et documentation courte.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Questions fréquentes</h2>
+          <p>Quelques réponses avant de discuter.</p>
+        </div>
+        <details>
+          <summary>Est-ce que vous remplacez nos outils actuels?</summary>
+          <div class="details-content">Pas nécessairement. L’objectif est souvent de mieux utiliser vos outils existants et de les connecter, pas de tout changer.</div>
+        </details>
+        <details>
+          <summary>Est-ce adapté aux petites entreprises?</summary>
+          <div class="details-content">Oui. L’offre est conçue pour les petites entreprises de services qui veulent des gains rapides sans projet lourd.</div>
+        </details>
+        <details>
+          <summary>Est-ce que l’IA décide toute seule?</summary>
+          <div class="details-content">Non. Les usages IA doivent rester encadrés. Une validation humaine demeure nécessaire pour les décisions importantes.</div>
+        </details>
+        <details>
+          <summary>Quels outils pouvez-vous utiliser?</summary>
+          <div class="details-content">Selon le besoin : Zoho, Make, formulaires, courriels, feuilles de calcul, outils de calendrier, CRM, plateformes cloud et autres outils déjà en place.</div>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Parlons de vos tâches qui traînent</h2>
+          <p>Décrivez brièvement ce qui vous fait perdre du temps. Le formulaire est prêt côté interface; le backend pourra être branché plus tard.</p>
+        </div>
+        <div class="contact-grid">
+          <aside class="sketch-card contact-info">
+            <h3>IA Stratégie</h3>
+            <p><strong>Frédéric Camilleri</strong></p>
+            <p>Laval, Québec</p>
+            <p><a href="mailto:info@iastrategie.ca">info@iastrategie.ca</a></p>
+            <p><a href="tel:+15147397759">514-739-7759</a></p>
+            <p class="fineprint">Appel découverte gratuit. Analyse et implantation sur mandat cadré.</p>
+          </aside>
+
+          <form class="sketch-card" id="contactForm">
+            <div class="field">
+              <label for="name">Nom</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="company">Entreprise</label>
+              <input id="company" name="company" type="text" autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="email">Courriel</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="need">Besoin principal</label>
+              <select id="need" name="need">
+                <option>Automatisation / relances</option>
+                <option>Connexion entre outils</option>
+                <option>Organisation de processus</option>
+                <option>Usage IA simple</option>
+                <option>Je ne sais pas encore</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Ex. On perd du temps à relancer les clients après les soumissions..." required></textarea>
+            </div>
+            <button class="btn" type="submit">Envoyer la demande</button>
+            <p class="fineprint" id="formNote">Backend à brancher plus tard : Netlify Forms, Formspree, Make webhook ou autre.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>© 2026 IA Stratégie. Tous droits réservés.</div>
+      <div>
+        <a href="#">Confidentialité</a>
+        <a href="#">Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('formNote').textContent = 'Formulaire non branché pour l’instant. Vous pouvez écrire directement à info@iastrategie.ca.';
+      window.location.href = 'mailto:info@iastrategie.ca?subject=Demande%20IA%20Strat%C3%A9gie';
+    });
+  </script>
+</body>
+</html>
