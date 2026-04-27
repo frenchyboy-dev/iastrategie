@@ -427,7 +427,7 @@
       <div class="wrap">
         <div class="section-title">
           <h2>Parlons de vos tâches qui traînent</h2>
-          <p>Décrivez brièvement ce qui vous fait perdre du temps. Le formulaire est prêt côté interface; le backend pourra être branché plus tard.</p>
+          <p>Décrivez brièvement ce qui vous fait perdre du temps. Je vous répondrai pour valider si une analyse ciblée est pertinente.</p>
         </div>
         <div class="contact-grid">
           <aside class="sketch-card contact-info">
@@ -441,13 +441,17 @@
 
           <form class="sketch-card" id="contactForm">
             <div class="field">
-              <label for="name">Nom</label>
+              <label for="name">Prénom/Nom</label>
               <input id="name" name="name" type="text" autocomplete="name" required />
             </div>
             <div class="field">
               <label for="company">Entreprise</label>
               <input id="company" name="company" type="text" autocomplete="organization" />
             </div>
+			<div class="field">
+			  <label for="phone">Téléphone</label>
+			  <input id="phone" name="phone" type="tel" autocomplete="tel" />
+			</div>			
             <div class="field">
               <label for="email">Courriel</label>
               <input id="email" name="email" type="email" autocomplete="email" required />
@@ -467,7 +471,7 @@
               <textarea id="message" name="message" placeholder="Ex. On perd du temps à relancer les clients après les soumissions..." required></textarea>
             </div>
             <button class="btn" type="submit">Envoyer la demande</button>
-            <p class="fineprint" id="formNote">Backend à brancher plus tard : Netlify Forms, Formspree, Make webhook ou autre.</p>
+            <p class="fineprint" id="formNote">Vous pouvez aussi écrire directement à info@iastrategie.ca</p>
           </form>
         </div>
       </div>
@@ -484,12 +488,30 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      document.getElementById('formNote').textContent = 'Formulaire non branché pour l’instant. Vous pouvez écrire directement à info@iastrategie.ca.';
-      window.location.href = 'mailto:info@iastrategie.ca?subject=Demande%20IA%20Strat%C3%A9gie';
-    });
-  </script>
+	<script>
+	  const form = document.getElementById("contactForm");
+	  const formNote = document.getElementById("formNote");
+
+	  form.addEventListener("submit", async function (e) {
+		e.preventDefault();
+
+		const data = Object.fromEntries(new FormData(form).entries());
+
+		try {
+		  const response = await fetch("https://hook.us2.make.com/axtq0uyjp5drorv7tr3r39c0b1c88upf", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data)
+		  });
+
+		  if (!response.ok) throw new Error();
+
+		  form.reset();
+		  formNote.textContent = "Merci. Votre demande a été envoyée.";
+		} catch {
+		  formNote.textContent = "Erreur d’envoi. Écrivez directement à info@iastrategie.ca.";
+		}
+	  });
+	</script>
 </body>
 </html>
