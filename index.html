@@ -235,7 +235,31 @@
     footer { padding: 34px 0; border-top: 2px solid rgba(20,20,20,.10); color: var(--muted); }
     .footer-grid { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
     .footer-grid a { color: var(--muted); text-decoration: none; margin-left: 14px; }
-
+	.presentation-video {
+	  padding-top: 18px;
+	}
+	
+	.video-wrap {
+	  max-width: 760px;
+	  margin: 0 auto;
+	}
+	
+	.video-card {
+	  padding: 14px;
+	  background: white;
+	}
+	
+	.video-card video {
+	  width: 100%;
+	  display: block;
+	  border-radius: 16px;
+	}
+	
+	.video-download {
+	  margin-top: 18px;
+	  text-align: center;
+	}
+	  
     @media (max-width: 900px) {
       .hero-grid, .contact-grid { grid-template-columns: 1fr; }
       .grid-3, .offers { grid-template-columns: 1fr; }
@@ -261,6 +285,7 @@
         <span style="font-size: 1.65em; font-weight: 800;">IA Stratégie</span>
       </a>
       <div class="navlinks">
+		<a href="#presentation-video">Vidéo</a>
         <a href="#services">Services</a>
         <a href="#methode">Méthode</a>
         <a href="#tarifs">Tarifs</a>
@@ -296,6 +321,30 @@
   </header>
 
   <main>
+    <section id="presentation-video" class="presentation-video">
+      <div class="wrap">
+        <div class="section-title video-wrap">
+          <h2>Découvrez IA Stratégie en 1 minute</h2>
+          <p>Une courte présentation pour voir comment l’IA peut simplifier vos suivis.</p>
+        </div>
+
+        <div class="video-wrap">
+          <div class="sketch-card video-card">
+            <video controls playsinline preload="metadata">
+              <source src="presentation.mp4" type="video/mp4">
+              Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+          </div>
+
+          <div class="video-download">
+            <a class="btn secondary" href="presentation.pdf" target="_blank" rel="noopener">
+              Télécharger la présentation PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="services">
       <div class="wrap">
         <div class="section-title">
