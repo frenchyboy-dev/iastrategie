@@ -127,14 +127,6 @@
       box-shadow: var(--shadow);
     }
     .hero-card { padding: 26px; transform: rotate(1deg); }
-    .hero-card:before {
-      content: "";
-      position: absolute;
-      inset: 16px -10px -12px 14px;
-      border: 2px dashed rgba(255,91,79,.45);
-      border-radius: var(--radius);
-      z-index: -1;
-    }
     .hero-card h2 { margin: 0 0 14px; font-size: 1.25rem; }
     .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
     .checklist li { display: flex; align-items: flex-start; gap: 10px; }
@@ -231,14 +223,6 @@
       box-shadow: var(--shadow);
       display: block;
     }
-    .about-photo-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 10px -10px -12px 10px;
-      border: 2px dashed rgba(255,91,79,.45);
-      border-radius: var(--radius);
-      z-index: -1;
-    }
     .about-content { display: grid; gap: 18px; }
     .about-content blockquote {
       margin: 0;
@@ -302,7 +286,7 @@
     .video-card { padding: 14px; background: white; }
     .video-card video { width: 100%; display: block; border-radius: 16px; }
     .video-download { margin-top: 18px; text-align: center; }
-	  
+      
     @media (max-width: 900px) {
       .hero-grid, .contact-grid, .about-grid { grid-template-columns: 1fr; }
       .grid-3, .offers { grid-template-columns: 1fr; }
@@ -395,33 +379,33 @@
           <p>Des interventions courtes, ciblées et utiles pour améliorer vos opérations sans transformer votre entreprise en laboratoire informatique.</p>
         </div>
         <div class="grid-3">
-		  <article class="sketch-card card">
-		    <div class="icon">
-		      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>
-		      </svg>
-		    </div>
-		    <h3>Automatisation des processus</h3>
-		    <p>Relances, notifications, transferts d'information, tâches répétitives et petits flux de travail qui prennent trop de temps.</p>
-		  </article>
-		  <article class="sketch-card card">
-		    <div class="icon">
-		      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		        <path d="M12 22V8"/><path d="m5 12-3 3 3 3"/><path d="m19 9 3-3-3-3"/><path d="M2 15h10"/><path d="M12 9h10"/>
-		      </svg>
-		    </div>
-		    <h3>Intégration d'outils</h3>
-		    <p>Connexion entre formulaires, courriels, CRM, facturation, feuilles de calcul, outils de gestion et applications cloud.</p>
-		  </article>
-		  <article class="sketch-card card">
-		    <div class="icon">
-		      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
-		      </svg>
-		    </div>
-		    <h3>IA pratique</h3>
-		    <p>Assistants simples, aide à la rédaction, classement d'information, synthèses et règles d'usage pour garder le contrôle humain.</p>
-		  </article>
+          <article class="sketch-card card">
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>
+              </svg>
+            </div>
+            <h3>Automatisation des processus</h3>
+            <p>Relances, notifications, transferts d'information, tâches répétitives et petits flux de travail qui prennent trop de temps.</p>
+          </article>
+          <article class="sketch-card card">
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22V8"/><path d="m5 12-3 3 3 3"/><path d="m19 9 3-3-3-3"/><path d="M2 15h10"/><path d="M12 9h10"/>
+              </svg>
+            </div>
+            <h3>Intégration d'outils</h3>
+            <p>Connexion entre formulaires, courriels, CRM, facturation, feuilles de calcul, outils de gestion et applications cloud.</p>
+          </article>
+          <article class="sketch-card card">
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
+              </svg>
+            </div>
+            <h3>IA pratique</h3>
+            <p>Assistants simples, aide à la rédaction, classement d'information, synthèses et règles d'usage pour garder le contrôle humain.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -503,7 +487,6 @@
       </div>
     </section>
 
-    <!-- À propos -->
     <section id="apropos">
       <div class="wrap">
         <div class="section-title">
@@ -515,7 +498,7 @@
             <img src="headshot.png" alt="Frédéric Camilleri, fondateur de IA Stratégie" />
           </div>
           <div class="about-content">
-            <blockquote>
+            blockquote>
               « En tant qu'ancien chef d'entreprise (17 ans à diriger MicroExpert, 3 500 clients) et chargé de projet, j'ai passé ma carrière à optimiser des processus. Je sais que le quotidien d'une entreprise locale est trop souvent ralenti par la paperasse, les suivis manuels et la gestion des données. Avec IA Stratégie, je mets cette double expertise à votre service pour implanter une IA pratique, épurée et entièrement confidentielle, conçue pour redonner de l'air à vos opérations. »
             </blockquote>
             <div>
@@ -570,11 +553,11 @@
             <h3>IA Stratégie</h3>
             <p><a href="mailto:info@iastrategie.ca">info@iastrategie.ca</a></p>
             <p><a href="tel:+15147397759">514-739-7759</a></p>
-			<p class="fineprint">
-			  Appel découverte gratuit.<br>
-			  Automatisation, IA pratique et amélioration des processus pour petites entreprises.<br>
-			  <strong>Basé à Laval — je travaille avec des PME de Montréal, Laval et la Rive-Nord.</strong>
-			</p>
+            <p class="fineprint">
+              Appel découverte gratuit.<br>
+              Automatisation, IA pratique et amélioration des processus pour petites entreprises.<br>
+              <strong>Basé à Laval — je travaille avec des PME de Montréal, Laval et la Rive-Nord.</strong>
+            </p>
           </aside>
 
           <form class="sketch-card" id="contactForm">
@@ -648,9 +631,6 @@
     });
   </script>
 
-  <!-- Cloudflare Web Analytics -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "eaa2e5545dba45cd938452fc47068230"}'></script>
-  <!-- End Cloudflare Web Analytics -->
-
-</body>
+  </body>
 </html>
