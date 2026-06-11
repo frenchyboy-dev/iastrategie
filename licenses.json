@@ -1,5 +1,9 @@
 {
-  "license_hash": "e6800b2a3e8225de1081c08df4e15489616bcb2b5223cbbb6f24bf557939da4e",
-  "active": true,
-  "expires": "2100-12-31"
+  "licenses": [
+    {
+      "license_hash": "0d87fb6c2a160a930e8ef09b0e6f3474d998a501813f6403af8b693c41b6df2a",
+      "active": true,
+      "expires": "2100-01-01"
+    }
+  ]
 }
