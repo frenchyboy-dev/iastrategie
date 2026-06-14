@@ -1,0 +1,24 @@
+{
+  "currency": "USD",
+  "unit": "per_1m_tokens",
+  "models": {
+    "gpt-4o-mini": {
+      "input_cost_per_1m_tokens": 0.15,
+      "output_cost_per_1m_tokens": 0.60
+    },
+    "gpt-4o": {
+      "input_cost_per_1m_tokens": 2.50,
+      "output_cost_per_1m_tokens": 10.00
+    },
+    "gpt-4o-mini-transcribe": {
+      "input_cost_per_1m_tokens": 1.25,
+      "output_cost_per_1m_tokens": 5.00,
+      "transcription_cost_per_minute": 0.003
+    },
+    "gpt-4o-transcribe": {
+      "input_cost_per_1m_tokens": 2.50,
+      "output_cost_per_1m_tokens": 10.00,
+      "transcription_cost_per_minute": 0.006
+    }
+  }
+}
