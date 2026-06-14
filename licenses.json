@@ -9,7 +9,9 @@
       "plan": "manual",
       "expires": "2100-01-01",
       "max_machines": 1,
-      "allowed_machine_hashes": []
+      "allowed_machine_hashes": [
+        "a474781e361506ce0335c869db4368debbf3b4abf5dc0c1fc250c809c261b51b"
+      ]
     }
   ]
 }
