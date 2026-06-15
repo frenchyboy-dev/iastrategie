@@ -1,14 +1,14 @@
 {
   "app": "IA Clerk",
-  "generated_at": "2026-06-14T00:00:00",
+  "generated_at": "2026-06-14T21:00:37",
   "licenses": [
     {
       "client_ref": "CL-0001",
-      "license_hash": "0d87fb6c2a160a930e8ef09b0e6f3474d998a501813f6403af8b693c41b6df2a",
+      "license_hash": "88b5ac1feb1c0f038c96668e749fae4a69372207162f3d67da95f1c132a713f5",
       "active": true,
-      "plan": "manual",
-      "expires": "2100-01-01",
-      "max_machines": 10,
+      "plan": "monthly",
+      "expires": "2029-01-31",
+      "max_machines": 5,
       "allowed_machine_hashes": [
         "a474781e361506ce0335c869db4368debbf3b4abf5dc0c1fc250c809c261b51b"
       ]
